@@ -1,0 +1,99 @@
+{
+  "design_state_data": {
+    "target": {
+      "prediction_type": "Regression",
+      "target": "petal_width",
+      "type": "regression",
+      "partitioning": true
+    },
+    "feature_handling": {
+      "sepal_length": {
+        "feature_name": "sepal_length",
+        "is_selected": true,
+        "feature_variable_type": "numerical",
+        "feature_details": {
+          "numerical_handling": "Keep as regular numerical feature",
+          "rescaling": "No rescaling",
+          "make_derived_feats": false,
+          "missing_values": "Impute",
+          "impute_with": "Average of values",
+          "impute_value": 0
+        }
+      },
+      "sepal_width": {
+        "feature_name": "sepal_width",
+        "is_selected": true,
+        "feature_variable_type": "numerical",
+        "feature_details": {
+          "numerical_handling": "Keep as regular numerical feature",
+          "rescaling": "No rescaling",
+          "make_derived_feats": false,
+          "missing_values": "Impute",
+          "impute_with": "custom",
+          "impute_value": -1
+        }
+      },
+      "petal_length": {
+        "feature_name": "petal_length",
+        "is_selected": true,
+        "feature_variable_type": "numerical",
+        "feature_details": {
+          "numerical_handling": "Keep as regular numerical feature",
+          "rescaling": "No rescaling",
+          "make_derived_feats": false,
+          "missing_values": "Impute",
+          "impute_with": "Average of values",
+          "impute_value": 0
+        }
+      },
+      "petal_width": {
+        "feature_name": "petal_width",
+        "is_selected": true,
+        "feature_variable_type": "numerical",
+        "feature_details": {
+          "numerical_handling": "Keep as regular numerical feature",
+          "rescaling": "No rescaling",
+          "make_derived_feats": false,
+          "missing_values": "Impute",
+          "impute_with": "custom",
+          "impute_value": -2
+        }
+      },
+      "species": {
+        "feature_name": "species",
+        "is_selected": true,
+        "feature_variable_type": "text",
+        "feature_details": {
+          "text_handling": "Tokenize and hash",
+          "hash_columns": 0
+        }
+      }
+    },
+    "feature_generation": {
+      "explicit_pairwise_interactions": [
+        "sepal_width/sepal_length",
+        "petal_width/sepal_length"
+      ]
+    },
+    "feature_reduction": {
+      "feature_reduction_method": "Tree-based",
+      "num_of_features_to_keep": "4",
+      "num_of_trees": "5",
+      "depth_of_trees": "6"
+    },
+    "algorithms": {
+      "RandomForestRegressor": {
+        "model_name": "Random Forest Regressor",
+        "is_selected": true,
+        "min_trees": 10,
+        "max_trees": 20,
+        "feature_sampling_statergy": "Default",
+        "min_depth": 20,
+        "max_depth": 25,
+        "min_samples_per_leaf_min_value": 5,
+        "min_samples_per_leaf_max_value": 10,
+        "parallelism": 0
+      }
+    }
+  }
+}
